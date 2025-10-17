@@ -57,13 +57,17 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 
     private void RemoveEnemy(string key, Player player)
     {
-        
+       //TODO Add cleanup subscriptions when remove enemy
+       //player.OnChange -= enemy.OnChange;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-
+        //ADD Cleanup Subscriptions
+        _room.State.players.OnAdd -= CreateEnemy;
+        _room.State.players.OnRemove -= RemoveEnemy;
+        
         _room.Leave();
     }
 

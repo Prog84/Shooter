@@ -6,7 +6,6 @@ public class PlayerCharacter : MonoBehaviour
     private float _inputH;
     private float _inputV;
     
-    // Update is called once per frame
     private void Update()
     {
         Move();
